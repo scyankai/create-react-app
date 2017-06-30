@@ -21,9 +21,7 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
-const ReactCssModulesBabelPlugin = require('babel-plugin-react-css-modules');
 
-console.log('ReactCssModulesBabelPlugin', ReactCssModulesBabelPlugin);
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
 const publicPath = '/';
@@ -119,7 +117,6 @@ module.exports = {
       // To fix this, we prevent you from importing files out of src/ -- if you'd like to,
       // please link the files into your node_modules/ and let module-resolution kick in.
       // Make sure your source files are compiled, as they will not be processed in any way.
-      'react-css-modules',
       new ModuleScopePlugin(paths.appSrc),
     ],
   },
@@ -195,7 +192,7 @@ module.exports = {
         loader: require.resolve('babel-loader'),
         options: {
           // @remove-on-eject-begin
-          babelrc: false,
+          // babelrc: false,
           presets: [require.resolve('babel-preset-react-app')],
           // @remove-on-eject-end
           // This is a feature of `babel-loader` for webpack (not Babel itself).
@@ -217,6 +214,7 @@ module.exports = {
             loader: require.resolve('css-loader'),
             options: {
               importLoaders: 1,
+              localIdentName: '[local]-[hash:base64]',
             },
           },
           {
