@@ -192,7 +192,7 @@ module.exports = {
         loader: require.resolve('babel-loader'),
         options: {
           // @remove-on-eject-begin
-          babelrc: false,
+          // babelrc: false,
           presets: [require.resolve('babel-preset-react-app')],
           // @remove-on-eject-end
           compact: true,
@@ -223,6 +223,7 @@ module.exports = {
                     importLoaders: 1,
                     minimize: true,
                     sourceMap: true,
+                    localIdentName: '[local]-[hash:base64]',
                   },
                 },
                 {
@@ -357,5 +358,13 @@ module.exports = {
     fs: 'empty',
     net: 'empty',
     tls: 'empty',
+  },
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
+    'react-router': 'ReactRouter',
+    'react-router-dom': 'ReactRouterDOM',
+    antd: 'antd',
+    immutable: 'immutable',
   },
 };
