@@ -291,4 +291,12 @@ module.exports = {
   performance: {
     hints: false,
   },
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
+    'react-router': 'ReactRouter',
+    'react-router-dom': 'ReactRouterDOM',
+    antd: 'antd',
+    immutable: 'immutable',
+  },
 };
